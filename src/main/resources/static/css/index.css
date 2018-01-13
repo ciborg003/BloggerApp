@@ -1,0 +1,30 @@
+body{
+	/*background-color: #97FF95;*/
+	background-image: url(https://www.motto.net.ua/pic/201402/2560x1440/motto.net.ua-70836.jpg);
+	background-size: 100%;
+}
+
+.registration-form{
+	background-color: #F2F2F2;
+	align-self: center;
+	width:800px;
+	margin: auto;
+	margin-top: 200px;
+	padding-top: 15px;
+	border: 2px solid #AEAEAE;
+}
+
+.autorize-form{
+	background-color: #F2F2F2;
+	align-self: center;
+	width:400px;
+	margin: auto;
+	margin-top: 200px;
+	padding-top: 15px;
+	border: 2px solid #AEAEAE;
+	opacity: 0.9;
+}
+
+.control-btn{
+	float: right;	
+}

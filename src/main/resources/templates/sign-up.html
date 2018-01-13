@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title></title>
+</head>
+<body>
+
+	<div th:replace="fragments/header :: header"></div>
+
+	<div class="registration-form">
+		<div class="row">
+			<form class="col s12" th:action="@{/sign-up/register}" th:object="${user}" method="post">
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="login" th:field="*{login}" type="text" class="validate">
+						<label for="login">Login</label>
+					</div>
+					<div class="input-field col s6">
+					  	<input id="password" th:field="*{password}" type="password" class="validate">
+					  	<label for="password">Password</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input id="first_name" th:field="*{firstName}" type="text" class="validate">
+					  	<label for="first_name">First Name</label>
+					</div>
+					<div class="input-field col s6">
+				  		<input id="last_name" th:field="*{lastName}" type="text" class="validate">
+				  		<label for="last_name">Last Name</label>
+					</div>
+			  	</div>
+			  	<div class="row">
+					<div class="input-field col s12">
+				  		<input id="email" th:field="*{email}" type="email" class="validate">
+				  		<label for="email">Email</label>
+					</div>
+			  	</div>
+			  	<div class="row">
+					<div class="input-field col s12">
+						<div class="control-btn">
+							<button class="btn waves-effect waves-light" type="submit">Sign up
+								<i class="material-icons right">done</i>
+							</button>
+						</div>
+					</div>
+			  	</div>
+			</form>
+		</div>
+	</div>
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="css/materialize.min.css">
+  	<script src="js/materialize.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="css/index.css">
+</body>
+</html>

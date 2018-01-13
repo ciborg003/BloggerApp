@@ -1,0 +1,29 @@
+body{
+	/*background-color: #97FF95;*/
+}
+
+.registration-form{
+	background-color: #F2F2F2;
+	align-self: center;
+	width:800px;
+	margin: auto;
+	margin-top: 200px;
+	border: 2px solid #AEAEAE;
+}
+
+.autorize-form{
+	background-color: #F2F2F2;
+	align-self: center;
+	width:400px;
+	margin: auto;
+	margin-top: 200px;
+	border: 2px solid #AEAEAE;
+}
+
+.control-btn{
+	float: right;	
+}
+
+.logo{
+	padding-left: 20px;
+}
