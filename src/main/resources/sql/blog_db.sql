@@ -23,7 +23,7 @@ USE `blog_db` ;
 DROP TABLE IF EXISTS `blog_db`.`role` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`role` (
-  `id` INT NOT NULL,
+  `id` BIGINT NOT NULL,
   `role` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
@@ -35,14 +35,14 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `blog_db`.`user` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`user` (
-  `id` INT NOT NULL,
+  `id` BIGINT NOT NULL,
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `middlename` VARCHAR(45) NULL,
   `email` VARCHAR(45) NOT NULL,
   `login` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `role_id` INT NOT NULL,
+  `role_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_user_role1_idx` (`role_id` ASC),
   CONSTRAINT `fk_user_role1`
@@ -59,11 +59,11 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `blog_db`.`note` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`note` (
-  `id` INT NOT NULL,
+  `id` BIGINT NOT NULL,
   `text` VARCHAR(255) NULL,
   `image` VARCHAR(255) NULL,
   `link` VARCHAR(255) NULL,
-  `user_id` INT NOT NULL,
+  `user_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_note_user1_idx` (`user_id` ASC),
   CONSTRAINT `fk_note_user1`
@@ -80,10 +80,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `blog_db`.`commentary` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`commentary` (
-  `id` INT NOT NULL,
+  `id` BIGINT NOT NULL,
   `text` VARCHAR(140) NULL,
-  `note_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
+  `note_id` BIGINT NOT NULL,
+  `user_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_commentary_note1_idx` (`note_id` ASC),
   INDEX `fk_commentary_user1_idx` (`user_id` ASC),
@@ -106,10 +106,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `blog_db`.`like` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`like` (
-  `id` INT NOT NULL,
+  `id` BIGINT NOT NULL,
   `isLiked` BIT NULL,
-  `note_id` INT NOT NULL,
-  `user_id` INT NOT NULL,
+  `note_id` BIGINT NOT NULL,
+  `user_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_like_note1_idx` (`note_id` ASC),
   INDEX `fk_like_user1_idx` (`user_id` ASC),
@@ -132,8 +132,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `blog_db`.`subscription` ;
 
 CREATE TABLE IF NOT EXISTS `blog_db`.`subscription` (
-  `following_id` INT NOT NULL,
-  `follower_id` INT NOT NULL,
+  `following_id` BIGINT NOT NULL,
+  `follower_id` BIGINT NOT NULL,
   PRIMARY KEY (`following_id`))
 ENGINE = InnoDB;
 

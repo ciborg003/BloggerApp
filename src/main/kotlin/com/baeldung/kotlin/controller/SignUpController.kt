@@ -1,8 +1,9 @@
 package com.baeldung.kotlin.controller
 
+import com.baeldung.kotlin.dao.RoleRepository
 import com.baeldung.kotlin.model.User
-//import com.baeldung.kotlin.service.UserService
-//import org.springframework.beans.factory.annotation.Autowired
+import com.baeldung.kotlin.service.UserService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -14,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/sign-up")
 class SignUpController {
 
-//    @Autowired
-//    lateinit var userService: UserService
+    @Autowired
+    lateinit var userService: UserService
+    @Autowired
+    lateinit var roleRepository: RoleRepository
 
     @GetMapping("")
     fun signUp(model: Model): String{
-        val user = User()
+        val user = User(role = roleRepository.findByRole("User"))
         model.addAttribute("user", user)
         return "sign-up"
     }
@@ -29,8 +32,8 @@ class SignUpController {
         println("User:")
         println(user.login)
         println(user.password)
-        println(user.lastName)
-        println(user.firstName)
+        println(user.lastname)
+        println(user.firstname)
         return "redirect:/"
     }
 }
