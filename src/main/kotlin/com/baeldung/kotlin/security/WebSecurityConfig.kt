@@ -16,7 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder
 class WebSecurityConfig: WebSecurityConfigurerAdapter() {
 
     @Autowired
-    lateinit var userDetailService: UserDetailsService
+    lateinit var userDetailsService: UserDetailsService
 
     @Bean
     fun passwordEncoder(): PasswordEncoder {
@@ -29,25 +29,20 @@ class WebSecurityConfig: WebSecurityConfigurerAdapter() {
         if (http != null) {
             http.csrf().disable()
 
-            http
-                    .exceptionHandling().accessDeniedPage("/access-denied")
-                    .and()
-                    .authorizeRequests()
-                    .antMatchers("","/resources/**","/login","/sign-up").permitAll()
-                    .antMatchers("/room/**").hasRole("USER")
-                    .anyRequest().authenticated()
-                    .and()
-                    .formLogin().loginPage("/login")
-                    .and()
-                    .logout()
+            http.authorizeRequests().antMatchers("/","/sign-up").permitAll()
 
-
+            http.authorizeRequests().antMatchers("/profiles/**").hasRole("User")
+            http.authorizeRequests().antMatchers("/profile").hasRole("User")
         }
 
-        @Autowired
-        @Throws(Exception::class)
-        fun configureGlobal(auth: AuthenticationManagerBuilder) {
-            auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder())
-        }
+
     }
+
+    @Autowired
+    @Throws(Exception::class)
+    fun configureGlobal(auth: AuthenticationManagerBuilder) {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder())
+    }
+
+
 }

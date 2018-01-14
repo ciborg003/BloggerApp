@@ -4,6 +4,7 @@ package com.baeldung.kotlin
 import com.baeldung.kotlin.model.User
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 
 /**
  *Created by Ilya Pavlovsky on 12/22/2017 10:08 PM

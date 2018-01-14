@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse
 class BlogController{
     @RequestMapping(method = arrayOf(RequestMethod.GET))
     fun doIndexGet(model: Model): String {
-        model.addAttribute("user", "Some User Name")
         return "welcome";
     }
 
